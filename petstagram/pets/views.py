@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 
 from petstagram.common.forms import CommentForm
-from petstagram.common.models import Comment
 from petstagram.pets.forms import PetForm, EditPetForm
 from petstagram.pets.models import Pet, Like
 
