@@ -8,9 +8,9 @@ def login_user(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
-            user = form.user_cache
+            user = form.save()
             login(request, user)
-            return redirect('index')
+            return redirect('landing')
     else:
         form = LoginForm()
 
@@ -27,4 +27,4 @@ def register_user(request):
 
 def logout_user(request):
     logout(request)
-    return redirect('index')
+    return redirect('landing')
