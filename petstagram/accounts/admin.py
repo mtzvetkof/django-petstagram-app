@@ -23,4 +23,4 @@ class PetstagramUserAdmin(UserAdmin):
             'fields': ('email', 'password1', 'password2'),
         }),
     )
-    readonly_fields = ('date_joined', 'email')
+    readonly_fields = ('date_joined',)

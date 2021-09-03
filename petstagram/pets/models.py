@@ -2,12 +2,15 @@ import os
 from os.path import join
 
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.db import models
 
 # def is_positive(value):
 #     if value <= 0:
 #         raise ValidationError
+
+UserModel = get_user_model()
 
 
 class Pet(models.Model):
@@ -41,6 +44,10 @@ class Pet(models.Model):
     # image_url = models.URLField()
     image = models.ImageField(
         upload_to='pets',
+    )
+    user = models.ForeignKey(
+        UserModel,
+        on_delete=models.CASCADE,
     )
 
 
