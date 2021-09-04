@@ -56,7 +56,9 @@ def pet_details(request, pk):
 def comment_pet(request, pk):
     form = CommentForm(request.POST)
     if form.is_valid():
-        form.save()
+        comment = form.save(commit=False)
+        comment.user = request.user
+        comment.save()
 
     return redirect('pet details', pk)
 
